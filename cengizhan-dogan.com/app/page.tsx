@@ -40,7 +40,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
-          {["intro", "work", "thoughts", "connect"].map((section) => (
+          {["intro", "work", "publications", "profile", "connect"].map((section) => (
             <button
               key={section}
               onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
@@ -64,26 +64,26 @@ export default function Home() {
               <div className="space-y-3 sm:space-y-2">
                 <div className="text-sm text-muted-foreground font-mono tracking-wider">PORTFOLIO / 2025</div>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
-                  Felix
+                  Cengizhan
                   <br />
-                  <span className="text-muted-foreground">Macaspac</span>
+                  <span className="text-muted-foreground">Dogan</span>
                 </h1>
               </div>
 
               <div className="space-y-6 max-w-md">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Frontend Developer crafting digital experiences at the intersection of
-                  <span className="text-foreground"> design</span>,<span className="text-foreground"> technology</span>,
-                  and
-                  <span className="text-foreground"> user experience</span>.
+                  Control systems researcher and aerospace engineer building
+                  <span className="text-foreground"> resilient autonomy</span>,
+                  <span className="text-foreground"> advanced simulations</span>, and
+                  <span className="text-foreground"> human-centred technology</span>.
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    Available for work
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    Not available for work
                   </div>
-                  <div>Philippines</div>
+                  <div>Istanbul, Turkey</div>
                 </div>
               </div>
             </div>
@@ -92,16 +92,21 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">CURRENTLY</div>
                 <div className="space-y-2">
-                  <div className="text-foreground">Frontend Developer</div>
-                  <div className="text-muted-foreground">@ Hububble</div>
-                  <div className="text-xs text-muted-foreground">2021 — Present</div>
+                  <div className="text-foreground">Research Associate</div>
+                  <div className="text-muted-foreground">@ Kadir Has University</div>
+                  <div className="text-xs text-muted-foreground">Mar 2025 — Present</div>
+                </div>
+                <div className="pt-4 border-t border-border/40 space-y-2 text-sm text-muted-foreground">
+                  <div className="text-foreground">Co-Founder</div>
+                  <div>Collate Labs · Aug 2025 — Present</div>
+                  <div>Eper Technologies · Mar 2025 — Present</div>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
                 <div className="flex flex-wrap gap-2">
-                  {["HubL", "React", "TypeScript", "HubSpot CMS", "Node.js"].map((skill) => (
+                  {["Control Engineering", "CFD", "Autonomy", "Aerospace Systems", "Founding"].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
@@ -122,39 +127,35 @@ export default function Home() {
         >
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <h2 className="text-3xl sm:text-4xl font-light">Selected Work</h2>
-              <div className="text-sm text-muted-foreground font-mono">2019 — 2025</div>
+              <h2 className="text-3xl sm:text-4xl font-light">Work Experience</h2>
+              <div className="text-sm text-muted-foreground font-mono">2025 — Present</div>
             </div>
 
             <div className="space-y-8 sm:space-y-12">
               {[
                 {
-                  year: "2023",
-                  role: "Senior Frontend Engineer",
-                  company: "Vercel",
-                  description: "Leading frontend architecture for developer tools and AI-powered features.",
-                  tech: ["React", "TypeScript", "Next.js"],
+                  time: "Aug 2025 — Present",
+                  role: "Co-Founder",
+                  company: "Collate Labs",
+                  location: "Istanbul, Turkey",
+                  description: "Co-leading product direction for intelligent research agents accelerating engineering workflows.",
+                  focus: ["Founding", "Agentic AI", "Product Strategy"],
                 },
                 {
-                  year: "2022",
-                  role: "Frontend Engineer",
-                  company: "Linear",
-                  description: "Built performant interfaces for project management and team collaboration.",
-                  tech: ["React", "GraphQL", "Framer Motion"],
+                  time: "Mar 2025 — Present",
+                  role: "Co-Founder",
+                  company: "Eper Technologies",
+                  location: "Istanbul, Turkey",
+                  description: "Building simulation-first aerospace tooling that bridges research and real-world deployment.",
+                  focus: ["Aerospace", "Simulation", "Operations"],
                 },
                 {
-                  year: "2021",
-                  role: "Full Stack Developer",
-                  company: "Stripe",
-                  description: "Developed payment infrastructure and merchant-facing dashboard features.",
-                  tech: ["Ruby", "React", "PostgreSQL"],
-                },
-                {
-                  year: "2019",
-                  role: "Software Engineer",
-                  company: "Airbnb",
-                  description: "Created booking flow optimizations and host management tools.",
-                  tech: ["React", "Node.js", "MySQL"],
+                  time: "Mar 2025 — Present",
+                  role: "Research Associate",
+                  company: "Kadir Has University",
+                  location: "Istanbul, Turkey",
+                  description: "Advancing the Dual Lyapunov Method to deliver stability guarantees for complex control systems.",
+                  focus: ["Control Theory", "Lyapunov Analysis", "Systems Engineering"],
                 },
               ].map((job, index) => (
                 <div
@@ -163,7 +164,7 @@ export default function Home() {
                 >
                   <div className="lg:col-span-2">
                     <div className="text-xl sm:text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors duration-500">
-                      {job.year}
+                      {job.time}
                     </div>
                   </div>
 
@@ -171,17 +172,18 @@ export default function Home() {
                     <div>
                       <h3 className="text-lg sm:text-xl font-medium">{job.role}</h3>
                       <div className="text-muted-foreground">{job.company}</div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide">{job.location}</div>
                     </div>
                     <p className="text-muted-foreground leading-relaxed max-w-lg">{job.description}</p>
                   </div>
 
                   <div className="lg:col-span-4 flex flex-wrap gap-2 lg:justify-end mt-2 lg:mt-0">
-                    {job.tech.map((tech) => (
+                    {job.focus.map((focus) => (
                       <span
-                        key={tech}
+                        key={focus}
                         className="px-2 py-1 text-xs text-muted-foreground rounded group-hover:border-muted-foreground/50 transition-colors duration-500"
                       >
-                        {tech}
+                        {focus}
                       </span>
                     ))}
                   </div>
@@ -192,72 +194,46 @@ export default function Home() {
         </section>
 
         <section
-          id="thoughts"
+          id="publications"
           ref={(el) => (sectionsRef.current[2] = el)}
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <div className="space-y-12 sm:space-y-16">
-            <h2 className="text-3xl sm:text-4xl font-light">Recent Thoughts</h2>
+            <div className="space-y-4 max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl font-light">Publications</h2>
+              <p className="text-sm text-muted-foreground font-mono">
+                * denotes equal contribution · # denotes alphabetical order of authorship
+              </p>
+            </div>
 
-            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+            <div className="space-y-6">
               {[
                 {
-                  title: "The Future of Web Development",
-                  excerpt: "Exploring how AI and automation are reshaping the way we build for the web.",
-                  date: "Dec 2024",
-                  readTime: "5 min",
+                  title: "Collate Agent",
+                  authors: "B. Kaymakcioglu, B. Koksal, L. M. Yalcin, Cengizhan Dogan, B. Gurel",
                 },
                 {
-                  title: "Design Systems at Scale",
-                  excerpt: "Lessons learned from building and maintaining design systems across multiple products.",
-                  date: "Nov 2024",
-                  readTime: "8 min",
+                  title: "CFD Analysis of Teorhinoplasty on Cadavres*",
+                  authors: "Cengizhan Dogan, T. Dogan",
                 },
                 {
-                  title: "Performance-First Development",
-                  excerpt: "Why performance should be a first-class citizen in your development workflow.",
-                  date: "Oct 2024",
-                  readTime: "6 min",
+                  title: "Stability Certificates for Dynamical Systems on the Torus*",
+                  authors: "Cengizhan Dogan, S. Tripathi, A. Gokcen, M. Kudeyt, S. Sahin, O. Karabcak",
                 },
                 {
-                  title: "The Art of Code Review",
-                  excerpt: "Building better software through thoughtful and constructive code reviews.",
-                  date: "Sep 2024",
-                  readTime: "4 min",
+                  title: "Drones and Wildfire Early Detection*",
+                  authors: "Cengizhan Dogan, D. Aysan, D. Tilkici",
                 },
-              ].map((post, index) => (
+              ].map((paper, index) => (
                 <article
                   key={index}
-                  className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
+                  className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                      <span>{post.date}</span>
-                      <span>{post.readTime}</span>
-                    </div>
-
+                  <div className="space-y-3">
                     <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                      {post.title}
+                      {paper.title}
                     </h3>
-
-                    <p className="text-muted-foreground leading-relaxed">{post.excerpt}</p>
-
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      <span>Read more</span>
-                      <svg
-                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{paper.authors}</p>
                   </div>
                 </article>
               ))}
@@ -265,22 +241,93 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="connect" ref={(el) => (sectionsRef.current[3] = el)} className="py-20 sm:py-32 opacity-0">
+        <section
+          id="profile"
+          ref={(el) => (sectionsRef.current[3] = el)}
+          className="min-h-screen py-20 sm:py-32 opacity-0"
+        >
+          <div className="space-y-12 sm:space-y-16">
+            <h2 className="text-3xl sm:text-4xl font-light">Education & Expertise</h2>
+
+            <div className="grid gap-8 lg:grid-cols-3">
+              <div className="space-y-4">
+                <div className="text-sm text-muted-foreground font-mono">EDUCATION</div>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-medium">University of Manchester</h3>
+                  <div className="text-sm text-muted-foreground">
+                    School of Engineering · B.Sc. Aerospace Engineering
+                  </div>
+                  <div className="text-sm text-muted-foreground">Sep 2022 — Jun 2025</div>
+                  <div className="text-sm text-muted-foreground">GPA: 3.70 / 4.00</div>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>Hyperloop Executive Committee Member</li>
+                  <li>Mixed Martial Arts Club President</li>
+                  <li>Royal Aeronautical Society &amp; IMechE Student/Affiliate</li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <div className="text-sm text-muted-foreground font-mono">SKILLS</div>
+                <div className="space-y-3">
+                  <div>
+                    <div className="text-xs uppercase tracking-widest text-muted-foreground">Software</div>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {["Microsoft Office", "SolidWorks", "Simulink", "Unity", "ANSYS", "Star-CCM+", "Abaqus"].map(
+                        (tool) => (
+                          <span key={tool} className="px-2 py-1 text-xs border border-border rounded-full">
+                            {tool}
+                          </span>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-widest text-muted-foreground">Coding</div>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {["Python", "TypeScript", "MATLAB", "XPPAUT", "Pinescript", "LaTeX"].map((lang) => (
+                        <span key={lang} className="px-2 py-1 text-xs border border-border rounded-full">
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="text-sm text-muted-foreground font-mono">HONORS &amp; AWARDS</div>
+                <ul className="space-y-4 text-sm text-muted-foreground">
+                  <li>
+                    <div className="text-foreground">Mechanics Course Success Award</div>
+                    <div>Top 5 of 450+ participants · Presented by Prof. A. Nihat Berker</div>
+                  </li>
+                  <li>
+                    <div className="text-foreground">Turkish National Windsurfing Champion</div>
+                    <div>National ranking in competitive windsurfing</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="connect" ref={(el) => (sectionsRef.current[4] = el)} className="py-20 sm:py-32 opacity-0">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
             <div className="space-y-6 sm:space-y-8">
               <h2 className="text-3xl sm:text-4xl font-light">Let's Connect</h2>
 
               <div className="space-y-6">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Always interested in new opportunities, collaborations, and conversations about technology and design.
+                  Exploring collaborations at the intersection of control theory, aerospace engineering, and intelligent systems.
                 </p>
 
                 <div className="space-y-4">
                   <Link
-                    href="mailto:test@example.com"
+                    href="mailto:cengizhan@epertechnologies.com"
                     className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
                   >
-                    <span className="text-base sm:text-lg">test@example.com</span>
+                    <span className="text-base sm:text-lg">Email me</span>
                     <svg
                       className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
                       fill="none"
@@ -299,10 +346,26 @@ export default function Home() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { name: "GitHub", handle: "@felixmacaspac", url: "#" },
-                  { name: "v0.dev", handle: "@felixmacaspac", url: "#" },
-                  { name: "HubSpot Community", handle: "@felixmacaspac", url: "#" },
-                  { name: "LinkedIn", handle: "felixmacaspac", url: "#" },
+                  {
+                    name: "Personal Website",
+                    summary: "Explore current projects and research",
+                    url: "https://cengizhan-dogan.com",
+                  },
+                  {
+                    name: "Mail",
+                    summary: "Reach out directly via email",
+                    url: "mailto:cengizhan@epertechnologies.com",
+                  },
+                  {
+                    name: "LinkedIn",
+                    summary: "Connect professionally on LinkedIn",
+                    url: "https://www.linkedin.com/in/cengo",
+                  },
+                  {
+                    name: "Google Scholar",
+                    summary: "Review publications and citations",
+                    url: "https://scholar.google.com",
+                  },
                 ].map((social) => (
                   <Link
                     key={social.name}
@@ -313,7 +376,7 @@ export default function Home() {
                       <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
                         {social.name}
                       </div>
-                      <div className="text-sm text-muted-foreground">{social.handle}</div>
+                      <div className="text-sm text-muted-foreground">{social.summary}</div>
                     </div>
                   </Link>
                 ))}
@@ -325,7 +388,7 @@ export default function Home() {
         <footer className="py-12 sm:py-16 border-t border-border">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
             <div className="space-y-2">
-              <div className="text-sm text-muted-foreground">© 2025 Felix Macaspac. All rights reserved.</div>
+              <div className="text-sm text-muted-foreground">© 2025 Cengizhan Dogan. All rights reserved.</div>
               <div className="text-xs text-muted-foreground">Built with v0.dev by Felix Macaspac</div>
             </div>
 
