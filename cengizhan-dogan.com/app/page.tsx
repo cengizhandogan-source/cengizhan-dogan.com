@@ -4,13 +4,8 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("")
   const sectionsRef = useRef<(HTMLElement | null)[]>([])
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
-  }, [isDark])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,15 +27,11 @@ export default function Home() {
     return () => observer.disconnect()
   }, [])
 
-  const toggleTheme = () => {
-    setIsDark(!isDark)
-  }
-
   return (
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
-          {["intro", "work", "publications", "profile", "connect"].map((section) => (
+          {["intro", "work", "projects", "publications", "profile", "connect"].map((section) => (
             <button
               key={section}
               onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
@@ -72,10 +63,7 @@ export default function Home() {
 
               <div className="space-y-6 max-w-md">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Control systems researcher and aerospace engineer building
-                  <span className="text-foreground"> resilient autonomy</span>,
-                  <span className="text-foreground"> advanced simulations</span>, and
-                  <span className="text-foreground"> human-centred technology</span>.
+                  Engineer that loves working on new ideas and bringing projects to life, always up for a challenge.
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
@@ -91,22 +79,27 @@ export default function Home() {
             <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">CURRENTLY</div>
-                <div className="space-y-2">
-                  <div className="text-foreground">Research Associate</div>
-                  <div className="text-muted-foreground">@ Kadir Has University</div>
-                  <div className="text-xs text-muted-foreground">Mar 2025 — Present</div>
+                <div className="space-y-2 text-sm text-muted-foreground">
+                  <div className="text-foreground">Co-Founder & CEO</div>
+                  <div className="text-muted-foreground">@ Stealth Startup</div>
+                  <div className="text-xs text-muted-foreground">Aug 2025 — Present</div>
                 </div>
                 <div className="pt-4 border-t border-border/40 space-y-2 text-sm text-muted-foreground">
                   <div className="text-foreground">Co-Founder</div>
-                  <div>Collate Labs · Aug 2025 — Present</div>
-                  <div>Eper Technologies · Mar 2025 — Present</div>
+                  <div className="text-muted-foreground">@ Eper Technologies</div>
+                  <div className="text-xs text-muted-foreground">Mar 2025 — Present</div>
+                </div>
+                <div className="pt-4 border-t border-border/40 space-y-2">
+                  <div className="text-foreground">Research Associate</div>
+                  <div className="text-muted-foreground">@ Kadir Has University</div>
+                  <div className="text-xs text-muted-foreground">Mar 2025 — Present</div>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
                 <div className="flex flex-wrap gap-2">
-                  {["Control Engineering", "CFD", "Autonomy", "Aerospace Systems", "Founding"].map((skill) => (
+                  {["Agentic AI", "Autonomous Systems", "Flight Dynamics"].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
@@ -126,17 +119,16 @@ export default function Home() {
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <div className="space-y-12 sm:space-y-16">
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <h2 className="text-3xl sm:text-4xl font-light">Work Experience</h2>
-              <div className="text-sm text-muted-foreground font-mono">2025 — Present</div>
-            </div>
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                <h2 className="text-3xl sm:text-4xl font-light">Work Experience</h2>
+              </div>
 
             <div className="space-y-8 sm:space-y-12">
               {[
                 {
                   time: "Aug 2025 — Present",
-                  role: "Co-Founder",
-                  company: "Collate Labs",
+                  role: "Co-Founder & CEO",
+                  company: "Stealth Startup",
                   location: "Istanbul, Turkey",
                   description: "Co-leading product direction for intelligent research agents accelerating engineering workflows.",
                   focus: ["Founding", "Agentic AI", "Product Strategy"],
@@ -155,7 +147,7 @@ export default function Home() {
                   company: "Kadir Has University",
                   location: "Istanbul, Turkey",
                   description: "Advancing the Dual Lyapunov Method to deliver stability guarantees for complex control systems.",
-                  focus: ["Control Theory", "Lyapunov Analysis", "Systems Engineering"],
+                  focus: ["Control Theory", "Dual Lyapunov Theorem", "Systems Engineering"],
                 },
               ].map((job, index) => (
                 <div
@@ -194,8 +186,136 @@ export default function Home() {
         </section>
 
         <section
-          id="publications"
+          id="projects"
           ref={(el) => (sectionsRef.current[2] = el)}
+          className="min-h-screen py-20 sm:py-32 opacity-0"
+        >
+          <div className="space-y-12 sm:space-y-16">
+            <div className="space-y-4 max-w-2xl">
+              <h2 className="text-3xl sm:text-4xl font-light">Projects</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Selected initiatives that explore resilience, autonomy, and human-centered tooling across research and
+                industry contexts.
+              </p>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2">
+              {[
+                {
+                  title: "MEDUSA",
+                  timeframe: "2025 — Present",
+                  summary:
+                    "Swarm autonomy platform coordinating heterogeneous UAV fleets with resilient comms, onboard perception, and mission assurance tooling.",
+                  tags: ["Agentic AI", "Swarm Control", "Edge Compute"],
+                  link: { label: "Request briefing", href: "mailto:cengizhan@eperteknoloji.com" },
+                },
+                {
+                  title: "Micro UAV",
+                  timeframe: "2025",
+                  summary:
+                    "Palm-sized reconnaissance vehicle with custom flight controller, dual-use camera payload, and gust rejection tuned via CFD-informed winglets.",
+                  tags: ["Flight Dynamics", "Embedded", "CFD"],
+                  link: null,
+                },
+                {
+                  title: "Rhinoplasty CFD Analysis",
+                  timeframe: "2024",
+                  summary:
+                    "Patient-specific airflow simulation pipeline benchmarking surgical outcomes and informing rhinoplasty planning decisions.",
+                  tags: ["CFD", "ANSYS", "Python"],
+                  link: { label: "See study", href: "https://scholar.google.com" },
+                },
+                {
+                  title: "eVTOL UAV",
+                  timeframe: "2024 — Present",
+                  summary:
+                    "Hybrid-lift prototype delivering vertical takeoff with fixed-wing cruise, optimized for rapid payload swaps and autonomous missions.",
+                  tags: ["eVTOL", "Systems Integration", "Control"],
+                  link: null,
+                },
+                {
+                  title: "Northwest Algorithms",
+                  timeframe: "2023 — Present",
+                  summary:
+                    "Algorithm studio exploring geospatial inference, maritime decision-making, and dual-use autonomy concepts for frontier operations.",
+                  tags: ["Strategy", "Geospatial", "Autonomy"],
+                  link: { label: "Inquire", href: "mailto:cengizhan@eperteknoloji.com" },
+                },
+                {
+                  title: "Dual Lyapunov Research",
+                  timeframe: "2023 — Present",
+                  summary:
+                    "Applied research program extending dual Lyapunov methods to certify nonlinear aerospace systems under adversarial disturbances.",
+                  tags: ["Control Theory", "Stability", "Mathematics"],
+                  link: null,
+                },
+                {
+                  title: "Intro to UAVs Course",
+                  timeframe: "2022",
+                  summary:
+                    "Curriculum introducing fundamentals of unmanned aerial systems covering regulation, mission design, and basic aerodynamics.",
+                  tags: ["Education", "Curriculum", "UAV"],
+                  link: null,
+                },
+                {
+                  title: "UAV Design Course",
+                  timeframe: "2023",
+                  summary:
+                    "Hands-on cohort program guiding multidisciplinary teams through requirements capture, aero-structural design, and flight testing.",
+                  tags: ["Education", "Design", "Systems"],
+                  link: null,
+                },
+                {
+                  title: "Advanced UAV Design Course",
+                  timeframe: "2024",
+                  summary:
+                    "Graduate-level module focused on autonomous mission planning, real-time control architectures, and certification pathways.",
+                  tags: ["Education", "Autonomy", "Flight Control"],
+                  link: null,
+                },
+              ].map((project, index) => (
+                <article
+                  key={index}
+                  className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 flex flex-col gap-4"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="space-y-2">
+                      <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <div className="text-xs text-muted-foreground font-mono uppercase tracking-wide">
+                        {project.timeframe}
+                      </div>
+                    </div>
+                    {project.link ? (
+                      <Link
+                        href={project.link.href}
+                        className="text-xs font-mono uppercase tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+                      >
+                        {project.link.label}
+                      </Link>
+                    ) : null}
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 text-xs text-muted-foreground border border-border/60 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="publications"
+          ref={(el) => (sectionsRef.current[3] = el)}
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <div className="space-y-12 sm:space-y-16">
@@ -209,11 +329,7 @@ export default function Home() {
             <div className="space-y-6">
               {[
                 {
-                  title: "Collate Agent",
-                  authors: "B. Kaymakcioglu, B. Koksal, L. M. Yalcin, Cengizhan Dogan, B. Gurel",
-                },
-                {
-                  title: "CFD Analysis of Teorhinoplasty on Cadavres*",
+                  title: "CFD Analysis of Teorhinoplasty",
                   authors: "Cengizhan Dogan, T. Dogan",
                 },
                 {
@@ -243,7 +359,7 @@ export default function Home() {
 
         <section
           id="profile"
-          ref={(el) => (sectionsRef.current[3] = el)}
+          ref={(el) => (sectionsRef.current[4] = el)}
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <div className="space-y-12 sm:space-y-16">
@@ -312,7 +428,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="connect" ref={(el) => (sectionsRef.current[4] = el)} className="py-20 sm:py-32 opacity-0">
+        <section id="connect" ref={(el) => (sectionsRef.current[5] = el)} className="py-20 sm:py-32 opacity-0">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
             <div className="space-y-6 sm:space-y-8">
               <h2 className="text-3xl sm:text-4xl font-light">Let's Connect</h2>
@@ -324,7 +440,7 @@ export default function Home() {
 
                 <div className="space-y-4">
                   <Link
-                    href="mailto:cengizhan@epertechnologies.com"
+                    href="mailto:cengizhan@eperteknoloji.com"
                     className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
                   >
                     <span className="text-base sm:text-lg">Email me</span>
@@ -347,14 +463,14 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   {
-                    name: "Personal Website",
-                    summary: "Explore current projects and research",
-                    url: "https://cengizhan-dogan.com",
+                    name: "X",
+                    summary: "Follow real-time updates and ideas",
+                    url: "https://x.com/CengizhanDoga17",
                   },
                   {
                     name: "Mail",
                     summary: "Reach out directly via email",
-                    url: "mailto:cengizhan@epertechnologies.com",
+                    url: "mailto:cengizhan@eperteknoloji.com",
                   },
                   {
                     name: "LinkedIn",
@@ -389,54 +505,10 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
             <div className="space-y-2">
               <div className="text-sm text-muted-foreground">© 2025 Cengizhan Dogan. All rights reserved.</div>
-              <div className="text-xs text-muted-foreground">Built with v0.dev by Felix Macaspac</div>
+              <div className="text-xs text-muted-foreground">Credit: Felix Macaspac</div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <button
-                onClick={toggleTheme}
-                className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300"
-                aria-label="Toggle theme"
-              >
-                {isDark ? (
-                  <svg
-                    className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                  </svg>
-                )}
-              </button>
-
-              <button className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300">
-                <svg
-                  className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
-              </button>
-            </div>
+            <div className="flex items-center gap-4"></div>
           </div>
         </footer>
       </main>
