@@ -131,15 +131,15 @@ export default function Home() {
                   company: "Stealth Startup",
                   location: "Istanbul, Turkey",
                   description: "Co-leading product direction for intelligent research agents accelerating engineering workflows.",
-                  focus: [],
+                  focus: ["Founding", "Agentic AI", "Product Strategy"],
                 },
                 {
                   time: "Mar 2025 — Present",
                   role: "Co-Founder",
                   company: "Eper Technologies",
                   location: "Istanbul, Turkey",
-                  description: "Building intelligent systems.",
-                  focus: [],
+                  description: "Building simulation-first aerospace tooling that bridges research and real-world deployment.",
+                  focus: ["Aerospace", "Simulation", "Operations"],
                 },
                 {
                   time: "Mar 2025 — Present",
@@ -147,7 +147,7 @@ export default function Home() {
                   company: "Kadir Has University",
                   location: "Istanbul, Turkey",
                   description: "Advancing the Dual Lyapunov Method to deliver stability guarantees for complex control systems.",
-                  focus: [],
+                  focus: ["Control Theory", "Dual Lyapunov Theorem", "Systems Engineering"],
                 },
               ].map((job, index) => (
                 <div
@@ -194,7 +194,8 @@ export default function Home() {
             <div className="space-y-4 max-w-2xl">
               <h2 className="text-3xl sm:text-4xl font-light">Projects</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Projects that I am participating in.
+                Selected initiatives that explore resilience, autonomy, and human-centered tooling across research and
+                industry contexts.
               </p>
             </div>
 
@@ -233,7 +234,7 @@ export default function Home() {
                   link: null,
                 },
                 {
-                  title: "hissediyo",
+                  title: "Northwest Algorithms",
                   timeframe: "2023 — Present",
                   summary:
                     "Algorithm studio exploring geospatial inference, maritime decision-making, and dual-use autonomy concepts for frontier operations.",
@@ -289,8 +290,6 @@ export default function Home() {
                     {project.link ? (
                       <Link
                         href={project.link.href}
-                        target="_blank"
-                        rel="noreferrer"
                         className="text-xs font-mono uppercase tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
                       >
                         {project.link.label}
@@ -298,6 +297,16 @@ export default function Home() {
                     ) : null}
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{project.summary}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 text-xs text-muted-foreground border border-border/60 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </article>
               ))}
             </div>
@@ -320,26 +329,28 @@ export default function Home() {
             <div className="space-y-6">
               {[
                 {
+                  title: "CFD Analysis of Teorhinoplasty",
+                  authors: "Cengizhan Dogan, T. Dogan",
+                },
+                {
                   title: "Stability Certificates for Dynamical Systems on the Torus*",
                   authors: "Cengizhan Dogan, S. Tripathi, A. Gokcen, M. Kudeyt, S. Sahin, O. Karabcak",
-                  link: "https://tok2025.omu.edu.tr",
+                },
+                {
+                  title: "Drones and Wildfire Early Detection*",
+                  authors: "Cengizhan Dogan, D. Aysan, D. Tilkici",
                 },
               ].map((paper, index) => (
                 <article
                   key={index}
                   className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500"
                 >
-                  <Link
-                    href={paper.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="space-y-3 block"
-                  >
+                  <div className="space-y-3">
                     <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
                       {paper.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{paper.authors}</p>
-                  </Link>
+                  </div>
                 </article>
               ))}
             </div>
@@ -430,8 +441,6 @@ export default function Home() {
                 <div className="space-y-4">
                   <Link
                     href="mailto:cengizhan@eperteknoloji.com"
-                    target="_blank"
-                    rel="noreferrer"
                     className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
                   >
                     <span className="text-base sm:text-lg">Email me</span>
@@ -477,8 +486,6 @@ export default function Home() {
                   <Link
                     key={social.name}
                     href={social.url}
-                    target="_blank"
-                    rel="noreferrer"
                     className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
                   >
                     <div className="space-y-2">
