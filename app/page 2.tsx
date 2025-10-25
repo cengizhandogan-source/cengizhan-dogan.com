@@ -99,7 +99,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
                 <div className="flex flex-wrap gap-2">
-                  {["Agentic AI", "Autonomous Systems", "Flight Dynamics"].map((skill) => (
+                  {["Agentic AI", "Unmanned Aerial Systems", "Flight Dynamics"].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
@@ -130,7 +130,7 @@ export default function Home() {
                   role: "Co-Founder & CEO",
                   company: "Stealth Startup",
                   location: "Istanbul, Turkey",
-                  description: "Co-leading product direction for intelligent research agents accelerating engineering workflows.",
+                  description: "Co-leading product direction for intelligent research agents accelerating workflows.",
                   focus: ["Founding", "Agentic AI", "Product Strategy"],
                 },
                 {
@@ -205,9 +205,9 @@ export default function Home() {
                   title: "MEDUSA",
                   timeframe: "2025 — Present",
                   summary:
-                    "Swarm autonomy platform coordinating heterogeneous UAV fleets with resilient comms, onboard perception, and mission assurance tooling.",
+                    "MEDUSA 2025 Mothership - Parasite UAV architecture developed by Eper Technologies. Swarm coordination by the parasite UAVs with the mothership acting as a signal relay.",
                   tags: ["Agentic AI", "Swarm Control", "Edge Compute"],
-                  link: { label: "Request briefing", href: "mailto:cengizhan@eperteknoloji.com" },
+                  link: null,
                 },
                 {
                   title: "Micro UAV",
@@ -223,7 +223,7 @@ export default function Home() {
                   summary:
                     "Patient-specific airflow simulation pipeline benchmarking surgical outcomes and informing rhinoplasty planning decisions.",
                   tags: ["CFD", "ANSYS", "Python"],
-                  link: { label: "See study", href: "https://scholar.google.com" },
+                  link: null,
                 },
                 {
                   title: "eVTOL UAV",
@@ -239,7 +239,7 @@ export default function Home() {
                   summary:
                     "Algorithm studio exploring geospatial inference, maritime decision-making, and dual-use autonomy concepts for frontier operations.",
                   tags: ["Strategy", "Geospatial", "Autonomy"],
-                  link: { label: "Inquire", href: "mailto:cengizhan@eperteknoloji.com" },
+                  link: null,
                 },
                 {
                   title: "Dual Lyapunov Research",
@@ -389,7 +389,7 @@ export default function Home() {
                   <div>
                     <div className="text-xs uppercase tracking-widest text-muted-foreground">Software</div>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      {["Microsoft Office", "SolidWorks", "Simulink", "Unity", "ANSYS", "Star-CCM+", "Abaqus"].map(
+                      {["Microsoft Office", "SolidWorks", "Simulink", "Unity", "ANSYS", "Star-CCM+", "Abaqus", "MATLAB"].map(
                         (tool) => (
                           <span key={tool} className="px-2 py-1 text-xs border border-border rounded-full">
                             {tool}
@@ -419,7 +419,7 @@ export default function Home() {
                     <div>Top 5 of 450+ participants · Presented by Prof. A. Nihat Berker</div>
                   </li>
                   <li>
-                    <div className="text-foreground">Turkish National Windsurfing Champion</div>
+                    <div className="text-foreground">2019 Turkish National Windsurfing Champion</div>
                     <div>National ranking in competitive windsurfing</div>
                   </li>
                 </ul>
