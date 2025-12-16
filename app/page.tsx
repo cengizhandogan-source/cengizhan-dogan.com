@@ -6,7 +6,7 @@ import { RetroFooter } from "@/components/retro-footer"
 import { PixelCard } from "@/components/pixel-card"
 import { SectionHeader } from "@/components/section-header"
 import { StatsDisplay } from "@/components/stats-display"
-import { ArrowRight, Briefcase, FileText } from "lucide-react"
+import { ArrowRight, Briefcase } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
@@ -42,7 +42,14 @@ const recentPosts: Array<{
   description: string
   href: string
   date: string
-}> = []
+}> = [
+  {
+    title: "Presenting at Turkish Automatic Control Conference 2025",
+    description: "Today I had the opportunity to present our conference paper on stability certificates for dynamical systems on the torus.",
+    href: "/blog/turkish-control-conference-2025",
+    date: "Sep 29, 2025",
+  },
+]
 
 const featuredPublication = {
   title: "Stability Certificates for Dynamical Systems on the Torus",
@@ -55,7 +62,7 @@ const featuredPublication = {
 
 const stats = [
   { label: "Projects", value: "4" },
-  { label: "Blog Posts", value: "0" },
+  { label: "Blog Posts", value: "1" },
   { label: "Publications", value: "1" },
 ]
 
@@ -67,6 +74,7 @@ const workExperience = [
     description:
       "Building the super-app for clinics.",
     logo: "/images/stealth-logo.png",
+    link: undefined,
   },
   {
     company: "Eper Technologies",
@@ -75,6 +83,7 @@ const workExperience = [
     description:
       "Developing unmanned systems. Focus on aircraft systems, avionics, and related technologies.",
     logo: "/images/eper-logo.png",
+    link: "https://www.linkedin.com/company/epertech/",
   },
   {
     company: "Kadir Has University",
@@ -83,12 +92,14 @@ const workExperience = [
     description:
       "Researching the applications of dual Lyapunov method for control engineering.",
     logo: "/images/kadir-has-logo.png",
+    link: "https://www.linkedin.com/school/khasedutr",
   },
   {
     company: "Teo Clinic",
     role: "Chief Growth Officer",
     period: "Dec 2021 - Mar 2025",
     description: "Oversaw customer relations, data management and marketing. Participated in prestigious gatherings including Teo & Nayak, Dallas Cosmetic Medicine & Rhinoplasty Meeting, PRS Korea, AFCF Toulouse.",
+    link: "https://www.linkedin.com/company/teorhinoplasty",
     logo: "/images/teo-logo.png",
   },
 ]
@@ -100,6 +111,7 @@ const education = [
     period: "Sep 2022 - Jun 2025",
     grade: "3.70/4",
     activities: "Hyperloop Manchester Committee Member, University of Manchester Mixed Martial Arts Society President",
+    logo: "/images/UoM.png",
   },
   {
     institution: "Lycee Saint Joseph D'Izmir",
@@ -107,7 +119,33 @@ const education = [
     period: "2018 - 2022",
     grade: "",
     activities: "",
+    logo: "/images/sj.png",
   },
+]
+
+const asciiArts = [
+  `            __
+(\\,--------'()'--o
+ (_    ___    /~"
+  (_)_)  (_)_)`,
+  `^..^      /
+/_/\\_____/
+   /\\   /\\
+  /  \\ /  \\`,
+  `  __      _
+o'')}____//
+ \`_/      )
+ (_(_/-(_/`,
+  `,'.-.'.
+'\\~ o/\` ,,
+ { @ } f
+ /\`-'\\$
+(_/-\\_) `,
+  `          __
+ \\ ______/ V\`-,
+  }        /~~
+ /_)^ --,r'
+|b      |b`
 ]
 
 export default function HomePage() {
@@ -133,6 +171,8 @@ export default function HomePage() {
       router.push("/blog")
     } else if (command === "publications") {
       router.push("/publications")
+    } else if (command === "game") {
+      router.push("/game")
     }
     // Specific project commands
     else if (command === "portfolio" || command === "portfolio website") {
@@ -155,10 +195,23 @@ export default function HomePage() {
       setHistory(prev => [...prev, "Chief Growth Officer at Teo Clinic (Dec 2021 - Mar 2025): Oversaw customer relations, data management and marketing."].slice(-3))
     }
     // Education commands
-    else if (command === "manchester" || command === "university of manchester") {
+    else if (command === "manchester" || command === "university of manchester" || command === "uni") {
       setHistory(prev => [...prev, "The University of Manchester (Sep 2022 - Jun 2025): Bachelor of Engineering - Aerospace Engineering, GPA: 3.70/4"].slice(-3))
     } else if (command === "lycee" || command === "saint joseph") {
       setHistory(prev => [...prev, "Lycee Saint Joseph D'Izmir (2018 - 2022): High School Diploma"].slice(-3))
+    }
+    // ASCII art command
+    else if (command === "ascii") {
+      const randomArt = asciiArts[Math.floor(Math.random() * asciiArts.length)]
+      setHistory(prev => [...prev, randomArt].slice(-3))
+    }
+    // Contact command
+    else if (command === "contact") {
+      setHistory(prev => [...prev, "Email: cengizhan@eperteknoloji.com or cengizhan@collatelabs.com"].slice(-3))
+    }
+    // LinkedIn command
+    else if (command === "linkedin") {
+      window.open("https://linkedin.com/in/cengo", "_blank")
     }
     // Help command
     else if (command === "help") {
@@ -166,26 +219,35 @@ export default function HomePage() {
         "=== TERMINAL NAVIGATION ===",
         "",
         "Main Pages:",
-        "  projects       - View all projects",
-        "  blog, posts    - Read blog posts",
-        "  publications   - View publications",
+        "",
+        "projects \t\t- View all projects",
+        "blog   \t\t-  Read blog posts",
+        "posts \t\t- Read blog posts",
+        "publications \t- View publications",
         "",
         "Specific Projects:",
-        "  portfolio      - Portfolio website",
-        "  lyapunov       - Dual Lyapunov research",
-        "  hyperloop      - Hyperloop chassis design",
-        "  rocket         - Rocket trajectory tool",
+        "",
+        "portfolio \t\t- Portfolio website",
+        "lyapunov \t\t- Dual Lyapunov research",
+        "hyperloop \t\t- Hyperloop chassis design",
+        "rocket \t\t- Rocket trajectory tool",
         "",
         "Work & Education:",
-        "  stealth        - Stealth Startup info",
-        "  eper           - Eper Technologies info",
-        "  kadir has      - Research position",
-        "  teo            - Teo Clinic role",
-        "  manchester     - University info",
+        "",
+        "stealth \t\t- Stealth Startup info",
+        "eper \t\t\t- Eper Technologies info",
+        "kadir has \t\t- Research position",
+        "teo \t\t\t- Teo Clinic role",
+        "uni\t\t\t- University info",
+        "manchester \t- University info",
         "",
         "Utility:",
-        "  clear          - Clear terminal history",
-        "  help           - Show this message"
+        "",
+        "contact \t\t- Show contact info",
+        "linkedin \t\t- Visit LinkedIn profile",
+        "clear \t\t\t- Clear terminal history",
+        "help \t\t\t- Show this message",
+        "ascii\t\t\t- Display ascii art"
       ])
     } else if (command === "clear") {
       setHistory([])
@@ -206,8 +268,18 @@ export default function HomePage() {
       <RetroNav />
 
       <main className="flex-1 pt-24 grass-bg">
-        <section className="min-h-[80vh] flex items-center justify-center px-4 relative">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+        <section
+          className="min-h-[80vh] flex items-center justify-center px-4 relative"
+          style={{
+            backgroundImage: 'url(/images/pixelist.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed'
+          }}
+        >
+          <div className="absolute inset-0 bg-background/80" />
+          <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
             <div className="flex justify-center">
               <Image
                 src="/images/pixelcengo.png"
@@ -268,8 +340,18 @@ export default function HomePage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-12 px-4">
-          <div className="max-w-4xl mx-auto">
+        <section
+          className="py-12 px-4 relative"
+          style={{
+            backgroundImage: 'url(/images/pixelist.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed'
+          }}
+        >
+          <div className="absolute inset-0 bg-background/80" />
+          <div className="max-w-4xl mx-auto relative z-10">
             <StatsDisplay stats={stats} />
           </div>
         </section>
@@ -279,17 +361,8 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto">
             <SectionHeader title="Work Experience" subtitle="Professional background" variant="brown" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {workExperience.map((job, index) => (
-                <div
-                  key={job.company}
-                  className={`p-6 bg-card border-4 shadow-[4px_4px_0] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0] ${
-                    index % 3 === 0
-                      ? "border-primary shadow-primary/40"
-                      : index % 3 === 1
-                        ? "border-secondary shadow-secondary/40"
-                        : "border-accent shadow-accent/40"
-                  }`}
-                >
+              {workExperience.map((job, index) => {
+                const CardContent = (
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       <Image
@@ -319,8 +392,32 @@ export default function HomePage() {
                       <p className="text-muted-foreground text-sm leading-relaxed">{job.description}</p>
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+
+                const cardClassName = `p-6 bg-card border-4 shadow-[4px_4px_0] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0] ${
+                  index % 3 === 0
+                    ? "border-primary shadow-primary/40"
+                    : index % 3 === 1
+                      ? "border-secondary shadow-secondary/40"
+                      : "border-accent shadow-accent/40"
+                }`
+
+                return job.link ? (
+                  <a
+                    key={job.company}
+                    href={job.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cardClassName}
+                  >
+                    {CardContent}
+                  </a>
+                ) : (
+                  <div key={job.company} className={cardClassName}>
+                    {CardContent}
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -368,7 +465,7 @@ export default function HomePage() {
         {/* Recent Blog Posts */}
         <section className="py-16 px-4 bg-muted/50">
           <div className="max-w-6xl mx-auto">
-            <SectionHeader title="Recent Posts" subtitle="Latest articles" variant="brown" />
+            <SectionHeader title="Recent Posts" subtitle="Recent thoughts" variant="brown" />
             {recentPosts.length === 0 ? (
               <div className="text-center py-12">
                 <p className="text-muted-foreground text-xl">No posts yet ~</p>
@@ -401,9 +498,6 @@ export default function HomePage() {
                 className="block p-6 bg-card border-4 border-accent shadow-[4px_4px_0_oklch(0.55_0.08_220)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_oklch(0.55_0.08_220)] transition-all"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-accent/20">
-                    <FileText className="w-6 h-6 text-accent" />
-                  </div>
                   <div className="flex-1 space-y-2">
                     <h3 className="font-[family-name:var(--font-pixel)] text-[10px] md:text-xs text-foreground tracking-wider leading-relaxed">
                       {featuredPublication.title}
@@ -441,26 +535,37 @@ export default function HomePage() {
                       : "border-secondary shadow-secondary/40"
                   }`}
                 >
-                  <div className="space-y-2">
-                    <div className="flex flex-col gap-1">
-                      <h3 className="font-[family-name:var(--font-pixel)] text-[10px] text-foreground tracking-wider">
-                        {edu.institution}
-                      </h3>
-                      <span className="font-[family-name:var(--font-pixel)] text-[8px] text-muted-foreground">
-                        {edu.period}
-                      </span>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <Image
+                        src={edu.logo}
+                        alt={`${edu.institution} logo`}
+                        width={48}
+                        height={48}
+                        className="rounded border-2 border-border object-contain bg-background"
+                      />
                     </div>
-                    <p className={`text-sm font-medium ${
-                      index % 2 === 0 ? "text-primary" : "text-secondary"
-                    }`}>
-                      {edu.degree}
-                    </p>
-                    {edu.grade && (
-                      <p className="text-muted-foreground text-sm">Grade: {edu.grade}</p>
-                    )}
-                    {edu.activities && (
-                      <p className="text-muted-foreground text-sm leading-relaxed">{edu.activities}</p>
-                    )}
+                    <div className="flex-1 space-y-2">
+                      <div className="flex flex-col gap-1">
+                        <h3 className="font-[family-name:var(--font-pixel)] text-[10px] text-foreground tracking-wider">
+                          {edu.institution}
+                        </h3>
+                        <span className="font-[family-name:var(--font-pixel)] text-[8px] text-muted-foreground">
+                          {edu.period}
+                        </span>
+                      </div>
+                      <p className={`text-sm font-medium ${
+                        index % 2 === 0 ? "text-primary" : "text-secondary"
+                      }`}>
+                        {edu.degree}
+                      </p>
+                      {edu.grade && (
+                        <p className="text-muted-foreground text-sm">Grade: {edu.grade}</p>
+                      )}
+                      {edu.activities && (
+                        <p className="text-muted-foreground text-sm leading-relaxed">{edu.activities}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}

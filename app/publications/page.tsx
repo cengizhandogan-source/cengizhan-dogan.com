@@ -1,8 +1,7 @@
-import type React from "react"
 import { RetroNav } from "@/components/retro-nav"
 import { RetroFooter } from "@/components/retro-footer"
 import { SectionHeader } from "@/components/section-header"
-import { ExternalLink, FileText, BookOpen, Award, ArrowLeft } from "lucide-react"
+import { ExternalLink, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
 const publications = [
@@ -16,15 +15,6 @@ const publications = [
     link: "https://zenodo.org/records/17737744",
   },
 ]
-
-const typeIcons: Record<string, React.ReactNode> = {
-  "Conference Paper": <FileText size={16} />,
-  "Journal Article": <BookOpen size={16} />,
-  "Conference Talk": <Award size={16} />,
-  "Guest Article": <FileText size={16} />,
-  Workshop: <Award size={16} />,
-  Podcast: <Award size={16} />,
-}
 
 export default function PublicationsPage() {
 
@@ -80,7 +70,6 @@ export default function PublicationsPage() {
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div className="flex items-center gap-2 text-accent">
-                      {typeIcons[pub.type]}
                       <span className="font-[family-name:var(--font-pixel)] text-[8px] tracking-wider">
                         {pub.type.toUpperCase()}
                       </span>

@@ -1,5 +1,45 @@
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
 import Link from "next/link"
+
+// Pixel art icons as SVG components
+const GithubPixel = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <rect x="7" y="2" width="6" height="2" />
+    <rect x="5" y="4" width="2" height="2" />
+    <rect x="13" y="4" width="2" height="2" />
+    <rect x="3" y="6" width="2" height="6" />
+    <rect x="15" y="6" width="2" height="6" />
+    <rect x="5" y="12" width="2" height="2" />
+    <rect x="13" y="12" width="2" height="2" />
+    <rect x="7" y="14" width="2" height="2" />
+    <rect x="11" y="14" width="2" height="2" />
+    <rect x="9" y="16" width="2" height="2" />
+    <rect x="7" y="8" width="2" height="2" />
+    <rect x="11" y="8" width="2" height="2" />
+  </svg>
+)
+
+const LinkedinPixel = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width="16" height="16" />
+    <rect x="4" y="4" width="12" height="12" fill="var(--background)" />
+    <rect x="6" y="6" width="2" height="2" />
+    <rect x="6" y="9" width="2" height="5" />
+    <rect x="10" y="9" width="2" height="5" />
+    <rect x="12" y="11" width="2" height="3" />
+    <rect x="12" y="9" width="2" height="1" />
+  </svg>
+)
+
+const MailPixel = () => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="4" width="16" height="12" />
+    <rect x="4" y="6" width="12" height="8" fill="var(--background)" />
+    <rect x="6" y="8" width="2" height="2" />
+    <rect x="8" y="10" width="2" height="2" />
+    <rect x="10" y="10" width="2" height="2" />
+    <rect x="12" y="8" width="2" height="2" />
+  </svg>
+)
 
 export function RetroFooter() {
   return (
@@ -49,7 +89,7 @@ export function RetroFooter() {
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors p-2 border-2 border-muted hover:border-primary hover:bg-primary/10"
               >
-                <Github size={20} />
+                <GithubPixel />
               </a>
               <a
                 href="https://www.linkedin.com/in/cengo"
@@ -57,13 +97,13 @@ export function RetroFooter() {
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-accent transition-colors p-2 border-2 border-muted hover:border-accent hover:bg-accent/10"
               >
-                <Linkedin size={20} />
+                <LinkedinPixel />
               </a>
               <a
                 href="mailto:cengizhan@eperteknoloji.com"
                 className="text-foreground hover:text-primary transition-colors p-2 border-2 border-muted hover:border-primary hover:bg-primary/10"
               >
-                <Mail size={20} />
+                <MailPixel />
               </a>
             </div>
           </div>

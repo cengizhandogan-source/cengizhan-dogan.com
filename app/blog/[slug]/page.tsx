@@ -1,7 +1,12 @@
+"use client"
+
 import { RetroNav } from "@/components/retro-nav"
 import { RetroFooter } from "@/components/retro-footer"
-import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react"
+import { ArrowLeft, ExternalLink } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
+import { useParams } from "next/navigation"
 
 const blogData: Record<
   string,
@@ -12,8 +17,24 @@ const blogData: Record<
     date: string
     readTime: string
     tags: string[]
+    image?: string
+    publicationLink?: string
   }
 > = {
+  "turkish-control-conference-2025": {
+    title: "Presenting at Turkish Automatic Control Conference 2025",
+    description: "Today I had the opportunity to present our conference paper on stability certificates for dynamical systems on the torus.",
+    content: [
+      "Today I had the opportunity to present our conference paper \"Stability Certificates for Dynamical Systems on the Torus\" at the annual Turkish Automatic-Control Conference.",
+      "In this work, together with Swapnil Tripathi, Alkım Gökçen, Mahmut Kudeyt, Savaş Şahin, and Özkan Karabacak, we developed semidefinite programming–based certificates for synchronization in generalized Kuramoto models. By using trigonometric polynomial expansions and Gram matrix representations, we introduced a framework that eliminates the need for stereographic projection and enables solvable, scalable stability analysis directly on the torus.",
+      "Excited to see this methodology contribute to the broader understanding of the Dual Lyapunov method.",
+    ],
+    date: "2025.09.29",
+    readTime: "3 min",
+    tags: ["Research", "Control Theory", "Conference"],
+    image: "/images/pixelpaper.png",
+    publicationLink: "https://zenodo.org/records/17737744",
+  },
   "retro-ui-modern-tech": {
     title: "Building Retro UIs with Modern Tech",
     description: "How to create authentic 90s aesthetics using CSS Grid, custom fonts, and creative animations.",
@@ -44,8 +65,11 @@ const blogData: Record<
   },
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+export default function BlogPostPage() {
+  const params = useParams()
+  const slug = params.slug as string
+  const [copied, setCopied] = useState(false)
+
   const post = blogData[slug] || {
     title: slug.replace(/-/g, " ").toUpperCase(),
     description: "Blog post content loading...",
@@ -53,6 +77,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     date: "2024.12.01",
     readTime: "5 min",
     tags: ["Coming Soon"],
+  }
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error("Failed to copy link:", err)
+    }
   }
 
   return (
@@ -78,10 +112,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {/* Meta */}
               <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
                 <span className="flex items-center gap-2 text-[10px]">
-                  <Calendar size={14} /> {post.date}
+                  {post.date}
                 </span>
                 <span className="flex items-center gap-2 text-[10px]">
-                  <Clock size={14} /> {post.readTime} READ
+                  {post.readTime} READ
                 </span>
               </div>
 
@@ -92,7 +126,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     key={tag}
                     className="flex items-center gap-1 text-[10px] px-3 py-1 border-2 border-primary text-primary"
                   >
-                    <Tag size={12} /> {tag}
+                    {tag}
                   </span>
                 ))}
               </div>
@@ -101,6 +135,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 {post.description}
               </p>
             </header>
+
+            {/* Featured Image */}
+            {post.image && (
+              <div className="mb-8 border-4 border-primary p-4 bg-muted">
+                <div className="aspect-video relative bg-card overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            )}
 
             {/* Content */}
             <div className="space-y-6 border-4 border-muted p-6 md:p-8 bg-card">
@@ -114,31 +162,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               ))}
             </div>
 
-            {/* Code Block Example */}
-            <div className="mt-8 border-4 border-accent p-4 bg-muted">
-              <div className="flex items-center gap-2 mb-4 text-[10px] text-accent">{"// CODE_EXAMPLE"}</div>
-              <pre className="text-foreground font-[family-name:var(--font-terminal)] text-sm md:text-base overflow-x-auto">
-                {`.neon-text {
-  text-shadow: 
-    0 0 5px var(--neon-pink),
-    0 0 10px var(--neon-pink),
-    0 0 20px var(--neon-pink);
-}`}
-              </pre>
-            </div>
+            {/* Publication Link */}
+            {post.publicationLink && (
+              <div className="mt-8">
+                <a
+                  href={post.publicationLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-[family-name:var(--font-pixel)] text-[10px] tracking-wider shadow-[4px_4px_0_oklch(0.55_0.08_220)] hover:shadow-[2px_2px_0_oklch(0.55_0.08_220)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                >
+                  VIEW PUBLICATION <ExternalLink size={12} />
+                </a>
+              </div>
+            )}
 
             {/* Share */}
             <div className="mt-12 pt-8 border-t-4 border-muted text-center">
               <p className="text-muted-foreground text-[10px] tracking-wider mb-4">{"// SHARE_THIS_POST"}</p>
               <div className="flex justify-center gap-4">
-                <button className="px-4 py-2 border-2 border-primary text-primary text-[10px] hover:bg-primary hover:text-primary-foreground transition-all">
-                  [TWITTER]
-                </button>
-                <button className="px-4 py-2 border-2 border-secondary text-secondary text-[10px] hover:bg-secondary hover:text-secondary-foreground transition-all">
-                  [LINKEDIN]
-                </button>
-                <button className="px-4 py-2 border-2 border-accent text-accent text-[10px] hover:bg-accent hover:text-accent-foreground transition-all">
-                  [COPY_LINK]
+                <button
+                  onClick={handleCopyLink}
+                  className="px-4 py-2 border-2 border-accent text-accent text-[10px] hover:bg-accent hover:text-accent-foreground transition-all"
+                >
+                  {copied ? "[COPIED!]" : "[COPY_LINK]"}
                 </button>
               </div>
             </div>

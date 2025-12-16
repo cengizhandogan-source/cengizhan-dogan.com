@@ -11,7 +11,15 @@ const blogPosts: Array<{
   href: string
   date: string
   tags: string[]
-}> = []
+}> = [
+  {
+    title: "Presenting at Turkish Automatic Control Conference 2025",
+    description: "Today I had the opportunity to present our conference paper on stability certificates for dynamical systems on the torus.",
+    href: "/blog/turkish-control-conference-2025",
+    date: "Sep 29, 2025",
+    tags: ["Research", "Control Theory", "Conference"],
+  },
+]
 
 export default function BlogPage() {
   return (

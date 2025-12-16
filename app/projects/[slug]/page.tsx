@@ -1,8 +1,26 @@
 import { RetroNav } from "@/components/retro-nav"
 import { RetroFooter } from "@/components/retro-footer"
-import { ArrowLeft, Github, ExternalLink } from "lucide-react"
+import { ArrowLeft, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+
+// Pixel art Github icon
+const GithubPixel = () => (
+  <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <rect x="7" y="2" width="6" height="2" />
+    <rect x="5" y="4" width="2" height="2" />
+    <rect x="13" y="4" width="2" height="2" />
+    <rect x="3" y="6" width="2" height="6" />
+    <rect x="15" y="6" width="2" height="6" />
+    <rect x="5" y="12" width="2" height="2" />
+    <rect x="13" y="12" width="2" height="2" />
+    <rect x="7" y="14" width="2" height="2" />
+    <rect x="11" y="14" width="2" height="2" />
+    <rect x="9" y="16" width="2" height="2" />
+    <rect x="7" y="8" width="2" height="2" />
+    <rect x="11" y="8" width="2" height="2" />
+  </svg>
+)
 
 const projectData: Record<
   string,
@@ -139,7 +157,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     href={project.github}
                     className="inline-flex items-center gap-2 px-4 py-2 border-2 border-foreground text-foreground text-[10px] hover:bg-foreground hover:text-background transition-all"
                   >
-                    <Github size={16} /> SOURCE_CODE
+                    <GithubPixel /> SOURCE_CODE
                   </a>
                 )}
                 {project.live && (
@@ -175,12 +193,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               {/* Screenshot */}
               <div className="border-4 border-secondary p-4 bg-muted">
                 {project.screenshot ? (
-                  <div className="aspect-video relative bg-card">
+                  <div className="aspect-video relative bg-card overflow-hidden">
                     <Image
                       src={project.screenshot}
                       alt={`${project.title} screenshot`}
                       fill
-                      className="object-contain"
+                      className="object-cover"
                     />
                   </div>
                 ) : (

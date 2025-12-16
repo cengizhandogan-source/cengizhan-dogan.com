@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
-import Image from "next/image"
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -23,13 +22,6 @@ export function RetroNav() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2 text-primary text-lg tracking-wider">
-            <Image
-              src="/images/pixelcengo.png"
-              alt="Cengizhan Dogan"
-              width={32}
-              height={32}
-              className="border-2 border-primary"
-            />
             <span className="font-[family-name:var(--font-pixel)] text-[10px]">Cengizhan Dogan</span>
           </Link>
 
@@ -81,7 +73,7 @@ export function RetroNav() {
 
       <div className="h-6 bg-muted overflow-hidden border-t-2 border-primary/30">
         <div className="scroll-text whitespace-nowrap text-base text-muted-foreground leading-6 tracking-widest">
-          ✦ Welcome to my portfolio ✦ Explore my projects and publications ✦ Thanks for visiting ✦ Happy coding! ✦
+          ✦ Welcome to my personal website ✦ Explore my projects and publications ✦ There are several easter eggs hidden in this website, good luck finding them ✦
         </div>
       </div>
     </nav>

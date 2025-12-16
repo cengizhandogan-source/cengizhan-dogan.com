@@ -17,9 +17,12 @@ const vt323 = VT323({
 })
 
 export const metadata: Metadata = {
-  title: "Cengizhan Dogan ~ Portfolio",
+  title: "Cengizhan Dogan ~ Personal Website",
   description: "Full-stack developer portfolio showcasing projects, blog posts, and publications",
-    generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: '/images/pixelcengo.png',
+  },
 }
 
 export default function RootLayout({
