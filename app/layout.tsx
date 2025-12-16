@@ -18,7 +18,7 @@ const vt323 = VT323({
 
 export const metadata: Metadata = {
   title: "Cengizhan Dogan ~ Personal Website",
-  description: "Full-stack developer portfolio showcasing projects, blog posts, and publications",
+  description: "Further information, publications and blog posts from Cengizhan Dogan.",
   generator: 'v0.app',
   icons: {
     icon: '/images/pixelcengo.png',
