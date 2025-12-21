@@ -38,6 +38,38 @@ const projectData: Record<
     publicationLink?: string
   }
 > = {
+  "teorhinoplasty-fluid-mechanics": {
+    title: "TEORHINOPLASTY_FLUID_MECHANICS",
+    description: "Fluid Mechanics Analysis of Teorhinoplasty",
+    longDescription:
+      "Researching the fluid dynamics behind how Teorhinoplasty allows patients to breathe properly. This ongoing research project investigates the aerodynamic principles and fluid flow characteristics within nasal passages following Teorhinoplasty procedures, aiming to optimize surgical techniques for improved respiratory function.",
+    tags: ["Fluid Mechanics", "Medical", "Research"],
+    year: "2025",
+    status: "WIP",
+    features: [
+      "Computational fluid dynamics (CFD) analysis of nasal airflow",
+      "Pre and post-operative airflow comparison studies",
+      "Optimization of surgical techniques based on fluid mechanics principles",
+      "Collaboration with medical professionals to validate findings"
+    ],
+  },
+  "uav-course": {
+    title: "UAV_COURSE",
+    description: "Introduction to UAVs Course",
+    longDescription:
+      "Conducted a free UAV 101 course to teach the principles of flight, UAV components and basic flight safety. The course attracted 300+ signups and was taught both in English and Turkish, making drone education accessible to a diverse international audience. Covered fundamental concepts from aerodynamics to practical flight operations.",
+    tags: ["UAV", "Education", "Aerospace"],
+    year: "2025",
+    status: "COMPLETED",
+    features: [
+      "300+ students enrolled from diverse backgrounds",
+      "Bilingual instruction (English and Turkish)",
+      "Comprehensive curriculum covering principles of flight",
+      "UAV components and systems architecture",
+      "Flight safety protocols and regulations",
+      "Hands-on practical demonstrations"
+    ],
+  },
   "dual-lyapunov-method": {
     title: "DUAL_LYAPUNOV_METHOD",
     description: "Advancing the Dual Lyapunov Method for Control Engineering",
@@ -76,7 +108,7 @@ const projectData: Record<
     longDescription:
       "Simulation tool for calculating and visualizing rocket trajectories with atmospheric models and propulsion parameters. This MATLAB-based tool provides comprehensive trajectory analysis including drag calculations, thrust profiles, and real-time visualization of flight paths under various atmospheric conditions.",
     tags: ["MATLAB", "Aerospace", "Simulation"],
-    year: "2023",
+    year: "2022",
     status: "COMPLETED",
   },
   "neon-runner": {

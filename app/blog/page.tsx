@@ -19,6 +19,13 @@ const blogPosts: Array<{
     date: "Sep 29, 2025",
     tags: ["Research", "Control Theory", "Conference"],
   },
+  {
+    title: "Learning to Fly in a Cessna-152",
+    description: "I had the pleasure of receiving flying lessons in Cascais, Portugal. Flying over the atlantic in a 2 seater is truly an amazing experience.",
+    href: "/blog/learning-to-fly-cessna-152",
+    date: "Aug 30, 2024",
+    tags: ["Aviation", "Portugal", "Flying"],
+  },
 ]
 
 export default function BlogPage() {

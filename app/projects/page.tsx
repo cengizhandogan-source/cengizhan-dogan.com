@@ -10,34 +10,47 @@ const projects: Array<{
   href: string
   tags: string[]
   category: string
+  year: string
 }> = [
   {
-    title: "Portfolio website",
-    description: "Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS featuring a retro pixel art aesthetic.",
-    href: "/projects/portfolio-website",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    category: "web"
+    title: "Fluid Mechanics Analysis of Teorhinoplasty",
+    description: "Researching the fluid dynamics behind how Teorhinoplasty allows patients to breathe properly.",
+    href: "/projects/teorhinoplasty-fluid-mechanics",
+    tags: ["Fluid Mechanics", "Medical", "Research"],
+    category: "research",
+    year: "2025"
+  },
+  {
+    title: "Introduction to UAVs Course",
+    description: "Conducted a free UAV 101 course to teach the principles of flight, UAV components and basic flight safety. 300+ signups for the course that was taught both in English and Turkish.",
+    href: "/projects/uav-course",
+    tags: ["UAV", "Education", "Aerospace"],
+    category: "education",
+    year: "2025"
   },
   {
     title: "Advancing the Dual Lyapunov Method for Control Engineering",
     description: "Research on dual Lyapunov functions for analyzing stability and convergence in control systems with applications to synchronization.",
     href: "/projects/dual-lyapunov-method",
     tags: ["Control Theory", "Research", "MATLAB"],
-    category: "research"
+    category: "research",
+    year: "2025"
   },
   {
     title: "Designing a composite Hyperloop chassis",
     description: "Designed and analyzed a composite chassis structure for Hyperloop Manchester pod using advanced materials and FEA simulations.",
     href: "/projects/hyperloop-chassis",
     tags: ["Aerospace", "Composites", "CAD"],
-    category: "engineering"
+    category: "engineering",
+    year: "2024"
   },
   {
     title: "MATLAB Rocket trajectory script",
     description: "Simulation tool for calculating and visualizing rocket trajectories with atmospheric models and propulsion parameters.",
     href: "/projects/rocket-trajectory",
     tags: ["MATLAB", "Aerospace", "Simulation"],
-    category: "engineering"
+    category: "engineering",
+    year: "2022"
   }
 ]
 
@@ -71,7 +84,7 @@ export default function ProjectsPage() {
             {/* Project Stats */}
             <div className="flex flex-wrap gap-4 mb-12">
               <div className="px-4 py-2 border-4 border-primary bg-primary/10 shadow-[3px_3px_0_oklch(0.45_0.12_145)]">
-                <span className="font-[family-name:var(--font-pixel)] text-[10px] text-primary">Total: 4 Projects</span>
+                <span className="font-[family-name:var(--font-pixel)] text-[10px] text-primary">Total: 5 Projects</span>
               </div>
             </div>
           </div>
@@ -93,6 +106,7 @@ export default function ProjectsPage() {
                     description={project.description}
                     href={project.href}
                     tags={project.tags}
+                    date={project.year}
                     variant={index % 3 === 0 ? "green" : index % 3 === 1 ? "brown" : "sky"}
                   />
                 ))}

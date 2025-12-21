@@ -16,24 +16,21 @@ const featuredProjects: Array<{
   description: string
   href: string
   tags: string[]
+  year: string
 }> = [
-  {
-    title: "Portfolio website",
-    description: "Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS featuring a retro pixel art aesthetic.",
-    href: "/projects/portfolio-website",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"]
-  },
   {
     title: "Advancing the Dual Lyapunov Method for Control Engineering",
     description: "Research on dual Lyapunov functions for analyzing stability and convergence in control systems with applications to synchronization.",
     href: "/projects/dual-lyapunov-method",
-    tags: ["Control Theory", "Research", "MATLAB"]
+    tags: ["Control Theory", "Research", "MATLAB"],
+    year: "2025"
   },
   {
     title: "Designing a composite Hyperloop chassis",
     description: "Designed and analyzed a composite chassis structure for Hyperloop Manchester pod using advanced materials and FEA simulations.",
     href: "/projects/hyperloop-chassis",
-    tags: ["Aerospace", "Composites", "CAD"]
+    tags: ["Aerospace", "Composites", "CAD"],
+    year: "2024"
   }
 ]
 
@@ -49,6 +46,12 @@ const recentPosts: Array<{
     href: "/blog/turkish-control-conference-2025",
     date: "Sep 29, 2025",
   },
+  {
+    title: "Learning to Fly in a Cessna-152",
+    description: "I had the pleasure of receiving flying lessons in Cascais, Portugal. Flying over the atlantic in a 2 seater is truly an amazing experience.",
+    href: "/blog/learning-to-fly-cessna-152",
+    date: "Aug 30, 2024",
+  },
 ]
 
 const featuredPublication = {
@@ -61,8 +64,8 @@ const featuredPublication = {
 }
 
 const stats = [
-  { label: "Projects", value: "4" },
-  { label: "Blog Posts", value: "1" },
+  { label: "Projects", value: "5" },
+  { label: "Blog Posts", value: "2" },
   { label: "Publications", value: "1" },
 ]
 
@@ -175,8 +178,10 @@ export default function HomePage() {
       router.push("/game")
     }
     // Specific project commands
-    else if (command === "portfolio" || command === "portfolio website") {
-      router.push("/projects/portfolio-website")
+    else if (command === "teorhinoplasty" || command === "fluid mechanics") {
+      router.push("/projects/teorhinoplasty-fluid-mechanics")
+    } else if (command === "uav" || command === "uav course" || command === "drone") {
+      router.push("/projects/uav-course")
     } else if (command === "dual lyapunov" || command === "lyapunov" || command === "control theory") {
       router.push("/projects/dual-lyapunov-method")
     } else if (command === "hyperloop" || command === "hyperloop chassis") {
@@ -213,6 +218,24 @@ export default function HomePage() {
     else if (command === "linkedin") {
       window.open("https://linkedin.com/in/cengo", "_blank")
     }
+    // Tree command
+    else if (command === "tree") {
+      setHistory([
+        "cengizhan-dogan.com/",
+        "├── / (Home)",
+        "├── /blog",
+        "│   ├── /blog/turkish-control-conference-2025",
+        "│   └── ... (more blog posts)",
+        "├── /projects",
+        "│   ├── /projects/teorhinoplasty-fluid-mechanics",
+        "│   ├── /projects/uav-course",
+        "│   ├── /projects/dual-lyapunov-method",
+        "│   ├── /projects/hyperloop-chassis",
+        "│   ├── /projects/rocket-trajectory",
+        "│   └── ... (more projects)",
+        "└── /publications"
+      ])
+    }
     // Help command
     else if (command === "help") {
       setHistory([
@@ -227,7 +250,8 @@ export default function HomePage() {
         "",
         "Specific Projects:",
         "",
-        "portfolio \t\t- Portfolio website",
+        "teorhinoplasty \t- Fluid mechanics research",
+        "uav \t\t\t- UAV course project",
         "lyapunov \t\t- Dual Lyapunov research",
         "hyperloop \t\t- Hyperloop chassis design",
         "rocket \t\t- Rocket trajectory tool",
@@ -243,6 +267,7 @@ export default function HomePage() {
         "",
         "Utility:",
         "",
+        "tree \t\t\t- Show project structure",
         "contact \t\t- Show contact info",
         "linkedin \t\t- Visit LinkedIn profile",
         "clear \t\t\t- Clear terminal history",
@@ -446,6 +471,7 @@ export default function HomePage() {
                   <PixelCard
                     key={project.title}
                     {...project}
+                    date={project.year}
                     variant={index === 1 ? "brown" : index === 2 ? "sky" : "green"}
                   />
                 ))}
