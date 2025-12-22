@@ -12,7 +12,14 @@ type ContentBlock = string | { type: 'video'; url: string; caption?: string }
 
 // Helper function to get video embed URL
 const getVideoEmbedUrl = (url: string): { embedUrl: string; platform: string } => {
-  // YouTube
+  // YouTube Shorts
+  const youtubeShortsRegex = /youtube\.com\/shorts\/([^"&?\/\s]+)/
+  const shortsMatch = url.match(youtubeShortsRegex)
+  if (shortsMatch) {
+    return { embedUrl: `https://www.youtube.com/embed/${shortsMatch[1]}`, platform: 'youtube' }
+  }
+
+  // YouTube regular
   const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
   const youtubeMatch = url.match(youtubeRegex)
   if (youtubeMatch) {
@@ -79,9 +86,9 @@ const blogData: Record<
     content: [
       "I had the pleasure of receiving flying lessons in Cascais, Portugal. Flying over the Atlantic in a 2-seater is truly an amazing experience.",
       "Because the aircraft is so light, you feel even the lightest gust of wind. The Cessna-152 is an incredible machine for learning - responsive, forgiving, and perfect for understanding the fundamentals of flight.",
-      { type: 'video', url: '/videos/blogmov1.MOV', caption: 'Flying over the coastline, volume warning' },
+      { type: 'video', url: 'https://youtube.com/shorts/0sO9WMfH-I0', caption: 'Flying over the coastline, volume warning' },
       "Every moment in the air was a lesson in physics, weather, and the sheer joy of flight. From pre-flight checks to landing, each step required focus and respect for the machine.",
-      { type: 'video', url: '/videos/blogmov2.MP4', caption: 'Short approach' },
+      { type: 'video', url: 'https://youtube.com/shorts/vt_ZppEFwNk', caption: 'Short approach' },
       "Huge thanks to my instructor, Pedro, for the flight lessons. His patience, expertise, and passion for aviation made this experience unforgettable.",
     ],
     date: "2024.08.30",
