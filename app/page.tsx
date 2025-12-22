@@ -19,18 +19,25 @@ const featuredProjects: Array<{
   year: string
 }> = [
   {
+    title: "Fluid Mechanics Analysis of Teorhinoplasty",
+    description: "Researching the fluid dynamics behind how Teorhinoplasty allows patients to breathe properly.",
+    href: "/projects/teorhinoplasty-fluid-mechanics",
+    tags: ["Fluid Mechanics", "Medical", "Research"],
+    year: "2025"
+  },
+  {
+    title: "Introduction to UAVs Course",
+    description: "Conducted a free UAV 101 course to teach the principles of flight, UAV components and basic flight safety. 300+ signups for the course that was taught both in English and Turkish.",
+    href: "/projects/uav-course",
+    tags: ["UAV", "Education", "Aerospace"],
+    year: "2025"
+  },
+  {
     title: "Advancing the Dual Lyapunov Method for Control Engineering",
     description: "Research on dual Lyapunov functions for analyzing stability and convergence in control systems with applications to synchronization.",
     href: "/projects/dual-lyapunov-method",
     tags: ["Control Theory", "Research", "MATLAB"],
     year: "2025"
-  },
-  {
-    title: "Designing a composite Hyperloop chassis",
-    description: "Designed and analyzed a composite chassis structure for Hyperloop Manchester pod using advanced materials and FEA simulations.",
-    href: "/projects/hyperloop-chassis",
-    tags: ["Aerospace", "Composites", "CAD"],
-    year: "2024"
   }
 ]
 
